@@ -1,5 +1,7 @@
 # murmur landing page
 
+Live site: [trymurmur.netlify.app](https://trymurmur.netlify.app/).
+
 A minimal, responsive concept landing page for a phone-based haptic app inspired by Sensate and BetterSleep. Its ten-second sample pairs changing phone vibrations with an original 147 Hz sine tone whose quick attack and gradual decay suggest a tuning fork. Headphones are optional. On browsers without vibration support, the sound and visual sample can still play.
 
 The vibration pattern suggests Sensate's track-dependent feel; it is not a copy of Sensate's low-frequency waveform. BetterSleep inspired the idea of including sound, but Murmur generates its own 147 Hz tone and does not use BetterSleep audio. The frequency label describes the sound, not a claim that it is medically optimal or that BetterSleep uses it.
@@ -18,6 +20,10 @@ The inspiration strip uses the current app icons from the [Sensate App Store lis
 
 ## Waitlist
 
-The email form sends submissions to Formspree. To see signups, sign in as the account owner and open [Murmur waitlist submissions](https://formspree.io/forms/mljjwwva/submissions). Notification settings for that form are in Formspree. The site does not store email addresses in GitHub Pages.
+The email form sends submissions to Formspree. To see signups, sign in as the account owner and open [Murmur waitlist submissions](https://formspree.io/forms/mljjwwva/submissions). Notification settings for that form are in Formspree. The static site does not store email addresses.
 
-GitHub Pages publishes the `docs/` copy of `public/`. After editing the site, sync with `cp -R public/. docs/` before pushing changes. The `docs/.nojekyll` file keeps GitHub Pages from processing the static files as Jekyll content.
+## Publishing
+
+Netlify hosts the public site as `trymurmur.netlify.app`. It was deployed by uploading a zip of the contents of `public/` to the Netlify project. After editing `public/`, create a new zip with `index.html` at its root and upload it from the project's [Deploys page](https://app.netlify.com/projects/trymurmur/deploys). Netlify is not connected to this Git repository, so a Git push alone will not update that URL.
+
+GitHub Pages still publishes `docs/`, whose `index.html` now redirects existing visitors to the new Netlify URL. Keep the redirect in place when updating `public/`.
