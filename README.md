@@ -1,8 +1,8 @@
 # murmur landing page
 
-A minimal, responsive concept landing page for a phone-based haptic app inspired by Sensate and BetterSleep. Its ten-second sample pairs changing phone vibrations with an original 10 Hz binaural beat made from 220 Hz and 230 Hz tones. Headphones are needed for the stereo beat. On browsers without vibration support, the sound and visual sample can still play.
+A minimal, responsive concept landing page for a phone-based haptic app inspired by Sensate and BetterSleep. Its ten-second sample pairs changing phone vibrations with an original 147 Hz sine tone whose quick attack and gradual decay suggest a tuning fork. Headphones are optional. On browsers without vibration support, the sound and visual sample can still play.
 
-The vibration pattern suggests Sensate's track-dependent feel; it is not a copy of Sensate's low-frequency waveform. BetterSleep lists a 10 Hz "Relaxation" binaural beat in its [official FAQ](https://support.bettersleep.com/en/articles/5410445-what-are-binaural-beats). Murmur generates its own tone and does not use BetterSleep audio. A frequency label is a description of the sound, not a claim that one frequency is medically optimal.
+The vibration pattern suggests Sensate's track-dependent feel; it is not a copy of Sensate's low-frequency waveform. BetterSleep inspired the idea of including sound, but Murmur generates its own 147 Hz tone and does not use BetterSleep audio. The frequency label describes the sound, not a claim that it is medically optimal or that BetterSleep uses it.
 
 Open `public/index.html` directly, or run a local server from the project root:
 

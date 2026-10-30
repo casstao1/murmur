@@ -25,8 +25,7 @@ if (menuToggle && mobileNav) {
 // so this approximates Sensate's described feel rather than its actual waveform.
 const samplePattern = [650, 350, 1600, 250, 2500, 900, 2350, 350, 1050];
 const sampleDuration = samplePattern.reduce((total, interval) => total + interval, 0);
-const binauralBeatHz = 10;
-const leftToneHz = 220;
+const tuningForkHz = 147;
 
 const playButton = document.querySelector('#play-demo');
 const playLabel = document.querySelector('.play-label');
@@ -86,24 +85,20 @@ function startAudio() {
     const now = context.currentTime;
     const durationSeconds = sampleDuration / 1000;
     const output = context.createGain();
+    // A soft strike followed by a long decay gives the pure tone a tuning-fork feel.
     output.gain.setValueAtTime(0, now);
-    output.gain.linearRampToValueAtTime(0.04, now + 0.65);
-    output.gain.setValueAtTime(0.04, now + durationSeconds - 0.85);
+    output.gain.linearRampToValueAtTime(0.055, now + 0.03);
+    output.gain.exponentialRampToValueAtTime(0.012, now + durationSeconds - 0.65);
     output.gain.linearRampToValueAtTime(0, now + durationSeconds - 0.05);
     output.connect(context.destination);
 
-    // Separate tones go to each ear; their 10 Hz difference creates the beat.
-    const oscillators = [leftToneHz, leftToneHz + binauralBeatHz].map((frequency, index) => {
-      const oscillator = context.createOscillator();
-      const panner = context.createStereoPanner();
-      oscillator.type = 'sine';
-      oscillator.frequency.setValueAtTime(frequency, now);
-      panner.pan.setValueAtTime(index === 0 ? -1 : 1, now);
-      oscillator.connect(panner).connect(output);
-      oscillator.start(now);
-      oscillator.stop(now + durationSeconds);
-      return oscillator;
-    });
+    const oscillator = context.createOscillator();
+    oscillator.type = 'sine';
+    oscillator.frequency.setValueAtTime(tuningForkHz, now);
+    oscillator.connect(output);
+    oscillator.start(now);
+    oscillator.stop(now + durationSeconds);
+    const oscillators = [oscillator];
 
     audioState = { context, output, oscillators };
     const resume = context.state === 'running' ? Promise.resolve() : context.resume();
