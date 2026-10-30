@@ -168,5 +168,45 @@ document.addEventListener('visibilitychange', () => {
   if (document.hidden && playing) stopDemo();
 });
 
+const waitlistForm = document.querySelector('#waitlist-form');
+if (waitlistForm) {
+  const endpoint = waitlistForm.getAttribute('action')?.trim() || '';
+  const submitButton = waitlistForm.querySelector('button[type="submit"]');
+  const feedback = document.querySelector('#waitlist-feedback');
+  const endpointReady = /^https:\/\/formspree\.io\/f\/[a-zA-Z0-9]+$/.test(endpoint);
+
+  if (endpointReady) submitButton.disabled = false;
+
+  waitlistForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (!endpointReady) return;
+
+    submitButton.disabled = true;
+    submitButton.textContent = 'Joining…';
+    feedback.classList.remove('is-error', 'is-success');
+    feedback.textContent = 'Adding your email…';
+
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        body: new FormData(waitlistForm),
+        headers: { Accept: 'application/json' },
+      });
+
+      if (!response.ok) throw new Error(response.status === 429 ? 'Too many signups right now. Try again later.' : 'Couldn’t join right now. Try again.');
+
+      waitlistForm.reset();
+      submitButton.textContent = 'You’re on the list';
+      feedback.textContent = 'Thanks — we’ll email you when Murmur launches.';
+      feedback.classList.add('is-success');
+    } catch (error) {
+      submitButton.disabled = false;
+      submitButton.textContent = 'Join waitlist';
+      feedback.textContent = error.message || 'Couldn’t join right now. Try again.';
+      feedback.classList.add('is-error');
+    }
+  });
+}
+
 const year = document.querySelector('#year');
 if (year) year.textContent = new Date().getFullYear();

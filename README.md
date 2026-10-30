@@ -16,4 +16,8 @@ The app name and pricing are concept placeholders. The Sensate hardware price sh
 
 The inspiration strip uses the current app icons from the [Sensate App Store listing](https://apps.apple.com/us/app/sensate-stress-anxiety-relief/id1225801099) and [BetterSleep App Store listing](https://apps.apple.com/us/app/bettersleep-relax-and-sleep/id314498713), retrieved through Apple's iTunes Lookup API on October 29, 2026. The Murmur icon is an original pulse and resonance design in `public/murmur-mark.svg` and is also used as the favicon. Showing the source icons explains the concept; it does not imply affiliation or endorsement.
 
+## Waitlist
+
+The email form sends submissions to Formspree. To see signups, sign in as the account owner and open [Murmur waitlist submissions](https://formspree.io/forms/mljjwwva/submissions). Notification settings for that form are in Formspree. The site does not store email addresses in GitHub Pages.
+
 GitHub Pages publishes the `docs/` copy of `public/`. After editing the site, sync with `cp -R public/. docs/` before pushing changes. The `docs/.nojekyll` file keeps GitHub Pages from processing the static files as Jekyll content.

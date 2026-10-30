@@ -137,6 +137,22 @@ a.inspiration-app:hover strong { color: var(--blue); }
 @keyframes sample-pulse { 0%, 100% { transform: scale(1); background: #e0e8f8; } 45% { transform: scale(1.19); background: #ccdcf9; } 80% { transform: scale(1.05); } }
 @keyframes sample-ring { 0%, 100% { transform: scale(1); opacity: 1; } 45% { transform: scale(1.07); opacity: .45; } 80% { transform: scale(1.02); opacity: .8; } }
 
+/* Waitlist */
+.waitlist { border-bottom: 1px solid #e3e3e6; background: var(--panel); text-align: center; }
+.waitlist-inner { max-width: 680px; }
+.waitlist h2 { margin: 15px 0 30px; font-size: clamp(44px, 5.2vw, 66px); font-weight: 680; letter-spacing: -.065em; line-height: 1.08; }
+.waitlist form { max-width: 560px; margin-inline: auto; }
+.waitlist label { display: block; margin: 0 0 9px 16px; color: #444449; font-size: 12px; font-weight: 600; text-align: left; }
+.waitlist-row { display: flex; gap: 10px; }
+.waitlist input { min-width: 0; height: 50px; flex: 1; padding: 0 19px; border: 1px solid #d1d1d6; border-radius: 999px; background: #fff; color: var(--ink); font: inherit; font-size: 15px; }
+.waitlist input::placeholder { color: #8a8a90; }
+.waitlist input:focus { border-color: var(--blue); outline: 3px solid #dbe5ff; outline-offset: 1px; }
+.waitlist button { flex: 0 0 auto; }
+.waitlist button:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+.waitlist-feedback { min-height: 20px; margin: 12px 0 0; color: #66666b; font-size: 12px; line-height: 1.5; text-align: left; }
+.waitlist-feedback.is-error { color: #b42318; }
+.waitlist-feedback.is-success { color: #247a56; }
+
 /* Footer */
 .site-footer { background: var(--panel); }
 .footer-inner { display: flex; align-items: center; gap: 30px; padding: 35px 0; border-bottom: 1px solid #dcdce0; }
@@ -201,6 +217,9 @@ a.inspiration-app:hover strong { color: var(--blue); }
   .compare-footnote { font-size: 11px; }
   .demo-grid { gap: 33px; }
   .demo-visual { border-radius: 20px; }
+  .waitlist h2 { font-size: clamp(40px, 10vw, 50px); }
+  .waitlist-row { flex-direction: column; }
+  .waitlist button { width: 100%; }
   .footer-inner { flex-wrap: wrap; gap: 13px 22px; }
   .footer-inner p { order: 3; flex: 0 0 100%; line-height: 1.5; }
   .back-top { margin-left: auto; }

@@ -22,13 +22,14 @@
           <a href="#how-it-works">How it works</a>
           <a href="#compare">Compare</a>
         </nav>
-        <a class="nav-button" href="#try-it">Try the demo</a>
+        <a class="nav-button" href="#waitlist">Join the waitlist</a>
         <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span></button>
       </div>
       <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
         <a href="#how-it-works">How it works</a>
         <a href="#compare">Compare</a>
         <a href="#try-it">Try the demo</a>
+        <a href="#waitlist">Join the waitlist</a>
       </nav>
     </header>
 
@@ -118,6 +119,21 @@
             <p class="demo-note">Original 147&nbsp;Hz tuning fork-style tone with a rhythm inspired by <a href="https://help.getsensate.com/en-US/sensate%E2%80%99s-vibrations-how-they-work-and-what-to-expect-1198219" target="_blank" rel="noopener noreferrer">Sensate’s feel</a>.</p>
           </div>
           <div class="demo-visual" aria-hidden="true"><div class="demo-circle demo-circle-outer"></div><div class="demo-circle demo-circle-middle"></div><div class="demo-circle demo-circle-inner"></div><div class="demo-center"><strong>147&nbsp;Hz</strong><span>TOUCH + SOUND</span></div></div>
+        </div>
+      </section>
+
+      <section class="waitlist section" id="waitlist" aria-labelledby="waitlist-title">
+        <div class="container waitlist-inner">
+          <p class="eyebrow">LAUNCH UPDATES</p>
+          <h2 id="waitlist-title">Get the launch email.</h2>
+          <form id="waitlist-form" action="https://formspree.io/f/mljjwwva" method="POST">
+            <label for="waitlist-email">Your email</label>
+            <div class="waitlist-row">
+              <input id="waitlist-email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="254" placeholder="you@example.com" required />
+              <button class="button button-primary" type="submit">Join waitlist</button>
+            </div>
+            <p class="waitlist-feedback" id="waitlist-feedback" role="status" aria-live="polite">Launch updates only. Managed by Formspree.</p>
+          </form>
         </div>
       </section>
     </main>
